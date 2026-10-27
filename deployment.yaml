@@ -1,0 +1,21 @@
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: job-tracker
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: job-tracker
+  template:
+    metadata:
+      labels:
+        app: job-tracker
+    spec:
+      containers:
+        - name: job-tracker
+          image: nasreen234/job-application-tracker:1.0
+          ports:
+            - containerPort: 5000
+          imagePullPolicy: Always
